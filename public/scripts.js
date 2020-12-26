@@ -10,11 +10,12 @@ async function displayData(){
         noService.className = "no-service";
         noService.textContent  = "No services available due to Christmas or Boxing day holidays - or System outage";
         document.querySelector('.wrapper').appendChild(noService);
+        return;
     }
 
+    
     let arrayLength = formatData.departures.all.length;
     let dataArray = [];
-
     //pluck the relevent values from the departures array in the JSON data and turn into an object called service
     for(i = 0; i < arrayLength ;i++){
     let service = {destination: `${formatData.departures.all[i].destination_name}`
