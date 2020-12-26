@@ -14,8 +14,20 @@ async function displayData(){
     }
 
     
+
+    try{
     let arrayLength = formatData.departures.all.length;
     let dataArray = [];
+
+    } catch (e){
+        console.log(e + " probably cause of error is no services available due to christmas or boxing day or system outage");
+
+        let noService = document.createElement('div');
+        noService.className = "no-service";
+        noService.textContent  = "No services available due to Christmas or Boxing day holidays - or System outage";
+        document.querySelector('.wrapper').appendChild(noService);
+        return;
+    }
     //pluck the relevent values from the departures array in the JSON data and turn into an object called service
     for(i = 0; i < arrayLength ;i++){
     let service = {destination: `${formatData.departures.all[i].destination_name}`
