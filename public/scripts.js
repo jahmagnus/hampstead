@@ -25,6 +25,7 @@ async function displayData(endpoint){
         console.log(dataArray[i]);
     }
 
+    
 
     for(train in dataArray){
 
@@ -61,11 +62,12 @@ async function displayData(endpoint){
 
         }
 
-
 } 
 
 
 const wrapper = document.querySelector('.wrapper');
 
-wrapper.addEventListener('onload', displayData('/homeTrains'));
-wrapper.addEventListener('onload', displayData('/trains'));
+
+
+// wrapper.addEventListener('onload', displayData('/homeTrains'));
+// wrapper.addEventListener('onload', displayData('/trains'));
