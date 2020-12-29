@@ -1,7 +1,6 @@
-async function displayData(){
-    
-    
-    const trainData = await fetch('/trains');
+async function displayData(endpoint){
+
+    const trainData = await fetch(endpoint);
     const formatData = await trainData.json();
     
     let arrayLength = formatData.departures.all.length;
@@ -11,7 +10,7 @@ async function displayData(){
     
     
     //pluck the relevent values from the departures array in the JSON data and turn into an object called service
-    for(i = 0; i < arrayLength ;i++){
+    for(i = 0; i < arrayLength; i++){
     let service = {destination: `${formatData.departures.all[i].destination_name}`
     , departureTime: `${formatData.departures.all[i].aimed_departure_time}`
     , statusValue: `${formatData.departures.all[i].status}`
@@ -66,6 +65,7 @@ async function displayData(){
 } 
 
 
-displayData();
+const wrapper = document.querySelector('.wrapper');
 
-
+wrapper.addEventListener('onload', displayData('/homeTrains'));
+wrapper.addEventListener('onload', displayData('/trains'));

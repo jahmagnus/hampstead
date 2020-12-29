@@ -45,5 +45,21 @@ app.get('/trains', async (request, response) => {
 
 });
 
+app.get('/homeTrains', async (request, response) => {
+
+    const apiKey = process.env.API_KEY;
+    const appID = "b74798d6";
+    const stationCRS = "STP"; //west hampstead thameslink
+    const calling_at = "WHP"; //St Pancras
+    const baseURL = "https://transportapi.com/v3/uk/train/station/WHP/live.json?";
+
+
+    const api_url = `https://transportapi.com/v3/uk/train/station/${stationCRS}/live.json?app_id=${appID}&app_key=${apiKey}&darwin=false&calling_at=${calling_at}&train_status=passenger`;
+    const fetch_response = await fetch(api_url);
+    const jsonData = await fetch_response.json();
+    response.json(jsonData);
+
+});
+
 
 
