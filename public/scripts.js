@@ -44,9 +44,13 @@ async function displayData(endpoint){
 
 
             let statusNode = document.createElement('div');
+            if(dataArray[train].statusValue != "NO REPORT"){
             statusNode.innerHTML = dataArray[train].statusValue;
             statusNode.className="status-div";
             trainNode.appendChild(statusNode);
+            } else {
+                statusNode.innerHTML = null;
+            }
         
             let expectedDepartureNode = document.createElement('div');
             expectedDepartureNode.innerHTML = `Expected: ${dataArray[train].expectedDeparture}`;
