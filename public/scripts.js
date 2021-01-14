@@ -38,7 +38,7 @@ async function displayData(endpoint){
             trainNode.appendChild(destinationNode);
 
             let departureNode = document.createElement('div');
-            departureNode.innerHTML = dataArray[train].departureTime;
+            departureNode.innerHTML =  `Departure time ${dataArray[train].departureTime}`;
             departureNode.className="departure-div";
             trainNode.appendChild(departureNode);
 
